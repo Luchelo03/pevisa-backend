@@ -6,6 +6,7 @@ from db import get_conn
 
 from routes.proveedores import proveedores_bp
 from routes.clientes import clientes_bp
+from routes.despachos import despachos_bp
 
 
 
@@ -40,6 +41,7 @@ def create_app():
         
     app.register_blueprint(proveedores_bp)
     app.register_blueprint(clientes_bp)
+    app.register_blueprint(despachos_bp)
 
 
 
