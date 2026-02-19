@@ -4,6 +4,9 @@ from dotenv import load_dotenv
 
 from db import get_conn
 
+from routes.proveedores import proveedores_bp
+
+
 def create_app():
     load_dotenv()  # carga .env local (NO se sube a GitHub)
 
@@ -32,6 +35,9 @@ def create_app():
                 "db": "not_connected",
                 "message": str(e)
             }), 500
+        
+    app.register_blueprint(proveedores_bp)
+
 
     return app
 
