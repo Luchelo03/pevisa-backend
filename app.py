@@ -9,11 +9,14 @@ from routes.clientes import clientes_bp
 from routes.despachos import despachos_bp
 from routes.reportes import reportes_bp
 
+from flask_cors import CORS
 
 def create_app():
     load_dotenv()  # carga .env local (NO se sube a GitHub)
 
     app = Flask(__name__)
+
+    CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000"]}})
 
     @app.get("/api/health")
     def health():
