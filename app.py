@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from db import get_conn
 
 from routes.proveedores import proveedores_bp
+from routes.clientes import clientes_bp
+
 
 
 def create_app():
@@ -37,6 +39,8 @@ def create_app():
             }), 500
         
     app.register_blueprint(proveedores_bp)
+    app.register_blueprint(clientes_bp)
+
 
 
     return app
